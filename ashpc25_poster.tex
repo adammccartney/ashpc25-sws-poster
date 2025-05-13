@@ -1,5 +1,5 @@
 \documentclass[final]{beamer}
-\usepackage[size=a0,scale=1.0]{beamerposter}
+\usepackage[size=a0,orientation=portrait,scale=1.0]{beamerposter}
 \usepackage{graphicx}
 \usepackage{lmodern} % for better fonts
 \usepackage{tikz}
@@ -12,7 +12,7 @@
 
 % Poster settings
 \title{Hacking on the Software Stack at VSC}
-\author{Luis Casillas-Trujillo, Filip Kocina, Adam McCartney, Moritz Siegel
+\author{Adam McCartney, Luis Casillas-Trujillo, Filip Kocina, Moritz Siegel
 \quad | \quad VSC Research Center}
 \date{\today}
 
@@ -61,7 +61,7 @@
 % Begin content
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{columns}[t]
-  \begin{column}{0.33\textwidth}
+  \begin{column}{0.48\textwidth}
     \begin{block}{Introduction}
      \begin{itemize}
       \item The evolution of the software stack followed key stages:
@@ -79,20 +79,27 @@
       \end{itemize}
      \end{itemize}
     \end{block}
+    \vfill
 
     \begin{block}{Methods}
         \begin{itemize}
           \item In 2024, the \textbf{Software and Modules (SAM)} starts to explore solutions.
           \item October - December 2024, evaluation of: Guix, Nix, Spack, EasyBuild, EESSI, Lmod, and ReFrame.
-          \item Early 2025, two contrasting strategies were implemented on the new MUSICA cluster:
+          \item Early 2025, two contrasting strategies were implemented on the new \textbf{MUSICA} cluster:
           \begin{itemize}
             \item \textbf{EESSI on the side}: Host-based installs using EasyBuild and the \texttt{sse2} toolkit, with limited EESSI integration.
             \item \textbf{EESSI as a base}: All software build will be integrated into EESSI's compatibility layer.
+                \begin{itemize}
+                  \item \texttt{EESSI\_USER\_INSTALL}
+                  \item \texttt{EESSI\_SITE\_INSTALL}
+                  \item \texttt{EESSI\_PROJECT\_INSTALL} to \texttt{/cvmfs/software.asc.ac.at}
+                \end{itemize}
           \end{itemize}
           \item Test stack: AOCC, Intel compilers, NVHPC, VASP 6.5.0 (CPU \& GPU), Mathematica, Containers.
 
         \end{itemize}
     \end{block}
+    \vfill
 
     \begin{block}{Distribution across sites possible with CVMFS}
       \begin{center}
@@ -101,7 +108,7 @@
     \end{block}
   \end{column}
 
-  \begin{column}{0.63\textwidth}
+  \begin{column}{0.48\textwidth}
       \begin{block}{Software built using EESSI-extend links against the compatibility layer}
         \lstinputlisting[language=bash]{./include/snippet-1.bash}
       \end{block}
@@ -111,11 +118,6 @@
       \end{block}
 
 
-      \begin{block}{Tools and Technologies}
-        \begin{center}
-            \includegraphics[width=561mm]{./include/logos.pdf}
-        \end{center}
-      \end{block}
 
       \begin{block} {Key challenges and observations}
           \begin{itemize}
@@ -131,6 +133,12 @@
 
   \end{column}
 \end{columns}
+
+\vfill
+\begin{block}{\centering \normalsize Tools and Technologies}
+  \centering
+  \includegraphics[width=0.66\paperwidth]{./include/logos.pdf}
+\end{block}
 
 \end{frame}
 \end{document}
